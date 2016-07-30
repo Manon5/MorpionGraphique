@@ -72,6 +72,7 @@ public class ValidateButton extends JButton implements MouseListener {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		window.clearSaisie();
 		
 	}
 

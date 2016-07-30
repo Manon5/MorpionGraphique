@@ -25,12 +25,13 @@ public class main {
 		grid.reset();
 		window.update('X', 'O', grid);
 		window.setText("\n**************** \n  Jeu du morpion \n*************** \n ");
-		window.setAllDeactivate();
+		window.setAllEnabled(false);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
+		
 		window.setText("Joueur 1, quel est votre nom ?");
 		while(window.isValidatePressed() == false){
 			try {
@@ -95,7 +96,7 @@ public class main {
 		Player playerOne = new Player(playerName1, symbol1, 1);
 		Player playerTwo = new Player(playerName2, symbol2, 2);
 		window.setText("Merci, la partie peut commencer.");
-		window.setAllActivate();
+		window.setAllEnabled(true);
 		
 		// ----------- Commencement du tour de jeu ! ----------- //
 		do{

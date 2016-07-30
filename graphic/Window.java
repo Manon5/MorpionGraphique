@@ -116,6 +116,10 @@ public class Window extends JFrame {
 		}
 		}
 	}
+	
+	public void clearSaisie(){
+		saisie.setText(null);
+	}
 		
 	
 	
@@ -279,38 +283,20 @@ public class Window extends JFrame {
 		nine.setTicked(false);
 	}
 	
+	public void setAllEnabled(boolean bool){
+		one.setEnabled(bool);
+		two.setEnabled(bool);
+		three.setEnabled(bool);
+		four.setEnabled(bool);
+		five.setEnabled(bool);
+		six.setEnabled(bool);
+		seven.setEnabled(bool);
+		eight.setEnabled(bool);
+		nine.setEnabled(bool);
+	}
 		
 		
-		public void setActivate(int x){
-			switch(x){
-			case 1: 
-				one.activate();
-				break;
-			case 2:
-				two.activate();
-				break;
-			case 3:
-				three.activate();
-				break;
-			case 4:
-				four.activate();
-				break;
-			case 5:
-				five.activate();
-				break;
-			case 6:
-				six.activate();
-				break;
-			case 7:
-				seven.activate();
-				break;
-			case 8:
-				eight.activate();
-				break;
-			case 9:
-				nine.activate();
-				break;	
-			}
+	
 		
 	}
-}
+
