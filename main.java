@@ -8,6 +8,7 @@ public class main {
 
 	public static void main(String[] args) {
 		
+		HomeWindow homeWindow = new HomeWindow();
 		Window window = new Window();
 		String playerName1;
 		String playerName2;
@@ -24,7 +25,7 @@ public class main {
 		Scanner sString = new Scanner(System.in);
 		grid.reset();
 		window.update('X', 'O', grid);
-		window.setText("\n**************** \n  Jeu du morpion \n*************** \n ");
+		window.setText("\n****** \n  Jeu du morpion \n****** \n ");
 		window.setAllEnabled(false);
 		try {
 			Thread.sleep(2000);

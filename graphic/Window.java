@@ -54,7 +54,7 @@ public class Window extends JFrame {
 			JPanel messageP = new JPanel();
 			messageP.setBackground(Color.WHITE);
 			messageP.add(message);
-			Font font = new Font("Tahoma", Font.BOLD, 16);
+			Font font = new Font("Tahoma", Font.PLAIN, 25);
 			message.setHorizontalAlignment(JLabel.CENTER);
 			message.setFont(font);
 			up.add(message, upLayout.NORTH);
