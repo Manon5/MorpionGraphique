@@ -11,9 +11,9 @@ public class HomeWindow extends JFrame {
 	
 	// ------------- Attributs ------------- //
 	
-	private  JButton play =  new JButton("Jouer");
-	private JButton quit = new JButton("Quitter");
-	private JButton credit = new JButton("Crédits");
+	private  HomeButton play =  new HomeButton(1, "Jouer");
+	private HomeButton quit = new HomeButton(2, "Quitter");
+	private HomeButton credit = new HomeButton(3, "Crédits");
 	
 	// ----------- Methodes --------- //
 	
@@ -25,12 +25,26 @@ public class HomeWindow extends JFrame {
 		this.getContentPane().add(credit);
 		
 		
-		this.setTitle("Morpion");
+		this.setTitle("Accueil");
 		this.setSize(500, 700);
 		this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
 	    this.setResizable(false);
 	    this.setVisible(true);
+	}
+	
+	public int buttonPressed(){
+		int number = 0;
+		if(play.getIsPressed() == true){
+			number = 1;
+		}else if(quit.getIsPressed() == true){
+			number = 2;
+		}else if(credit.getIsPressed() == true){
+			number = 3;
+		}else{
+			number = 0;
+		}
+		return number;
 	}
 
 	

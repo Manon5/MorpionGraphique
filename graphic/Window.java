@@ -22,6 +22,8 @@ public class Window extends JFrame {
 	private JTextArea saisie = new JTextArea();
 	private String textSaisie = new String();
 	private ValidateButton button = new ValidateButton("Valider", saisie, this);
+	private SymbolButton XButton = new SymbolButton('X');
+	private SymbolButton OButton = new SymbolButton('O');
 	private MorpionCell one = new MorpionCell(1);
 	private MorpionCell two = new MorpionCell(2);
 	private MorpionCell three = new MorpionCell(3);
@@ -66,6 +68,14 @@ public class Window extends JFrame {
 			saisie.setFont(font);
 			south.add(saisie, southLayout.CENTER);
 			south.add(button, southLayout.EAST);
+			
+			
+			// Ajout des boutons (choisir son signe) --- Deuxième JPanel
+			JPanel south2 = new JPanel();
+			BorderLayout south2Layout = new BorderLayout();
+			south2.setLayout(south2Layout);
+			south2.add(XButton, south2Layout.CENTER);
+			south2.add(OButton, south2Layout.CENTER);
 			
 			
 		// Parametres partie inf
@@ -293,6 +303,11 @@ public class Window extends JFrame {
 		seven.setEnabled(bool);
 		eight.setEnabled(bool);
 		nine.setEnabled(bool);
+	}
+	
+	
+	public void chooseSymbol(){
+		
 	}
 		
 		
