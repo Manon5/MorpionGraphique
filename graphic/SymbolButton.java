@@ -1,4 +1,5 @@
 package graphic;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -8,16 +9,26 @@ public class SymbolButton extends JButton implements MouseListener {
 	// ------------- Attributs ------------- //
 	
 	private char symbol;
+	private boolean isPressed;
 	
 	// ----------- Methodes --------- //
 	
-	public SymbolButton(char carac){
+	public SymbolButton(char carac, String str, int h, int l){
+		super(str);
 		symbol = carac;
+		isPressed = false;
+		Dimension size = new Dimension(h, l);
+		this.addMouseListener(this);
+		this.setPreferredSize(size);
+	}
+	
+	public boolean getIsPressed(){
+		return isPressed;
 	}
 	
 	
 	
-	// Mouse Listener
+	 // Mouse Listener
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
@@ -36,6 +47,9 @@ public class SymbolButton extends JButton implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
+		isPressed = true;
+		
+		
 		
 	}
 

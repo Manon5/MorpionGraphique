@@ -22,8 +22,8 @@ public class Window extends JFrame {
 	private JTextArea saisie = new JTextArea();
 	private String textSaisie = new String();
 	private ValidateButton button = new ValidateButton("Valider", saisie, this);
-	private SymbolButton XButton = new SymbolButton('X');
-	private SymbolButton OButton = new SymbolButton('O');
+	private SymbolButton XButton = new SymbolButton('X', "X", 250, 50);
+	private SymbolButton OButton = new SymbolButton('O', "O", 250, 50);
 	private MorpionCell one = new MorpionCell(1);
 	private MorpionCell two = new MorpionCell(2);
 	private MorpionCell three = new MorpionCell(3);
@@ -33,6 +33,9 @@ public class Window extends JFrame {
 	private MorpionCell seven = new MorpionCell(7);
 	private MorpionCell eight = new MorpionCell(8);
 	private MorpionCell nine = new MorpionCell(9);
+	
+	private JPanel south = new JPanel();
+	private BorderLayout layout = new BorderLayout(4, 4);
 	
 	
 	// ----------- Methodes --------- //
@@ -61,21 +64,13 @@ public class Window extends JFrame {
 			message.setFont(font);
 			up.add(message, upLayout.NORTH);
 			// Ajout de la zone de saisie
-			JPanel south = new JPanel();
-			BorderLayout southLayout = new BorderLayout();
-			south.setLayout(southLayout);
+			south.setLayout(layout);
 			up.add(south, upLayout.SOUTH);
 			saisie.setFont(font);
-			south.add(saisie, southLayout.CENTER);
-			south.add(button, southLayout.EAST);
+			south.add(saisie, layout.CENTER);
+			south.add(button, layout.EAST);
+		
 			
-			
-			// Ajout des boutons (choisir son signe) --- Deuxième JPanel
-			JPanel south2 = new JPanel();
-			BorderLayout south2Layout = new BorderLayout();
-			south2.setLayout(south2Layout);
-			south2.add(XButton, south2Layout.CENTER);
-			south2.add(OButton, south2Layout.CENTER);
 			
 			
 		// Parametres partie inf
@@ -306,8 +301,38 @@ public class Window extends JFrame {
 	}
 	
 	
-	public void chooseSymbol(){
+	public void changeLayoutToChooseSymbol(){
+		south.remove(saisie);
+		south.remove(button);
+		south.add(XButton, layout.WEST);
+		south.add(OButton, layout.EAST);
+	}
+	
+	public void changeLayoutToEnterName(){
+		south.remove(XButton);
+		south.remove(OButton);
+		south.add(saisie, layout.CENTER);
+		south.add(button, layout.EAST);
+	}
+	
+	public char getSymbol(){
+		char symbol = ' ';
 		
+		if(XButton.getIsPressed() == true){
+			symbol = 'X';
+		}else if(OButton.getIsPressed() == true){
+			symbol = 'O';
+		}else {
+			symbol = ' ';
+		}
+		
+		return symbol;
+	}
+	
+	public void setLayoutForGame(){
+		saisie.enable(false);
+		button.enable(false);
+		this.setPreferredSize(new Dimension(100, 200));
 	}
 		
 		

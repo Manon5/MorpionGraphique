@@ -70,17 +70,17 @@ public class main {
 			window.setValidate(false);
 			playerName1 = window.getSaisie();
 			window.setValidate(false);
+			window.changeLayoutToChooseSymbol();
 			window.setText("Bienvenue, " + playerName1 + " ! Avec quel symbole souhaitez-vous jouer ?");
-			while(window.isValidatePressed() == false){
+			while(window.getSymbol() == ' '){
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-			window.setValidate(false);
-			symbol = window.getSaisie();
-			symbol1 = symbol.charAt(0);
+			symbol1 = window.getSymbol();
+			window.changeLayoutToEnterName();
 			window.setText("Merci ! Joueur 2, quel est votre nom ?");
 			while(window.isValidatePressed() == false){
 				try {
@@ -91,39 +91,23 @@ public class main {
 			}
 			window.setValidate(false);
 			playerName2 = window.getSaisie();
-			window.setText("Bienvenue, " + playerName2 + " ! Avec quel symbole souhaitez-vous jouer ?");
-			while(window.isValidatePressed() == false){
-				try {
-					Thread.sleep(10);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
+			if (symbol1 == 'X'){
+				symbol2 = 'O';
+			}else {
+				symbol2 = 'X';
 			}
-			window.setValidate(false);
-				symbol2 = window.getSaisie().charAt(0);
-				if(symbol1 == symbol2){
-					while(symbol1==symbol2){
-						window.setText("Le symbole entré est le même que pour le joueur 1. Veuillez choisir un autre symbole");
-						while(window.isValidatePressed() == false){
-							try {
-								Thread.sleep(10);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-					window.setValidate(false);
-					symbol2 = window.getSaisie().charAt(0);
-					}
-					
+			window.setText("Bienvenue, " + playerName2 + " ! Vous jouerez avec le  symbole " + symbol2);
+			try {
+				Thread.sleep(2500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-				}
-			window.setValidate(false);
-			symbol = window.getSaisie();
-			symbol2 = symbol.charAt(0);
 			Player playerOne = new Player(playerName1, symbol1, 1);
 			Player playerTwo = new Player(playerName2, symbol2, 2);
 			window.setText("Merci, la partie peut commencer.");
 			window.setAllEnabled(true);
+			window.setLayoutForGame();
 			
 			// ----------- Commencement du tour de jeu ! ----------- //
 			do{
