@@ -6,7 +6,9 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import working.*;
@@ -16,7 +18,7 @@ public class ValidateButton extends JButton implements MouseListener {
 	// ---------------- Attributs ------------- //
 	
 	private String name;
-	private JTextArea textArea;
+	private JFormattedTextField textArea;
 	private boolean isPressed;
 	private Window window;
 	
@@ -24,7 +26,7 @@ public class ValidateButton extends JButton implements MouseListener {
 	// ---------------- Methodes -------------- //
 	
 	
-	public ValidateButton(String str, JTextArea txtField, Window pwindow){
+	public ValidateButton(String str, JFormattedTextField txtField, Window pwindow){
 		super(str);
 		textArea = txtField;
 		name = str;

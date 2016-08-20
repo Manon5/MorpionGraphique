@@ -4,12 +4,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.text.ParseException;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 import working.*;
 
@@ -18,8 +22,8 @@ public class Window extends JFrame {
 	
 	// ------------- Attributs ------------- //
 	
-	private JLabel message = new JLabel("Bienvenue !");
-	private JTextArea saisie = new JTextArea();
+	private JLabel message = new JLabel("Bienvenue !");	
+	private JFormattedTextField saisie;
 	private String textSaisie = new String();
 	private ValidateButton button = new ValidateButton("Valider", saisie, this);
 	private SymbolButton XButton = new SymbolButton('X', "X", 250, 50);
@@ -48,7 +52,14 @@ public class Window extends JFrame {
 		// Creation du JPanel principal
 		JPanel content = new JPanel();
 		content.setPreferredSize(new Dimension(500, 700));
-		
+		try {
+			MaskFormatter formatter = new MaskFormatter("???????");
+			JFormattedTextField pSaisie = new JFormattedTextField(formatter);
+			saisie = pSaisie;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} 
+		saisie.requestFocus(true);
 		
 		// Parametres partie sup
 		JPanel up = new JPanel();
