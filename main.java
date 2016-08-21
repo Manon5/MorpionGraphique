@@ -20,7 +20,8 @@ public class main {
 		char[] tab = {'1', '2', '3', 'O', '5', '6', '7', '8', '9'};
 		Grid grid = new Grid(tab);
 		Scanner sc = new Scanner(System.in);
-		
+		int score1;
+		int score2;
 		// Page d'accueil
 		
 		HomeWindow homeWindow = new HomeWindow();
@@ -44,6 +45,8 @@ public class main {
 			homeWindow.dispose();
 		}else{
 			// Commencement du jeu
+			score1 = 0;
+			score2 = 0;
 			Window window = new Window();
 			homeWindow.dispose();
 			grid.reset();
@@ -99,7 +102,9 @@ public class main {
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			
+
+			playerName1.replaceAll(" ", "");
+			playerName2.replaceAll(" ", "");
 			Player playerOne = new Player(playerName1, symbol1, 1);
 			Player playerTwo = new Player(playerName2, symbol2, 2);
 			window.setText("Merci, la partie peut commencer.");
@@ -153,8 +158,10 @@ public class main {
 				window.setText("La grille est pleine !");
 			}else if(grid.getMoves()%2 == 0){
 				window.setText(playerTwo.getName() + " a gagné !");
+				score2++;
 			}else{
 				window.setText(playerOne.getName() + " a gagné !");
+				score1++;
 			}
 			try {
 				Thread.sleep(2500);
@@ -162,7 +169,7 @@ public class main {
 				e.printStackTrace();
 			}
 			window.setLayoutToReplay();
-			window.setText("Voulez-vous recommencer ?");
+			window.setText("Voulez-vous recommencer ? (Score : " + score1 + " / " + score2 + ")");
 			while(window.getReplay() == ' '){
 				try {
 					Thread.sleep(10);
