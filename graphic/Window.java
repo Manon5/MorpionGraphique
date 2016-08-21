@@ -370,7 +370,7 @@ public class Window extends JFrame {
 	public void setLayoutToReplay(){
 		int x = 50;
 		int y = 550;
-		while(x < 100){
+		while(x < 110){
 			this.setSize(new Dimension(500, y));
 			up.setPreferredSize(new Dimension(500, x));
 			up.repaint();
@@ -381,8 +381,31 @@ public class Window extends JFrame {
 			}
 			x = x + 1;
 			y = y + 1;
+			
 		}
+		
+		south.add(yes, layout.WEST);
+		south.add(no, layout.EAST);
 
+	}
+	
+	public char getReplay(){
+		char choice = ' ';
+		
+		if(yes.getIsPressed() == true){
+			choice = 'Y';
+		}else if(no.getIsPressed() == true){
+			choice = 'N';
+		}else {
+			choice = ' ';
+		}
+		
+		return choice;
+	}
+	
+	public void resetReplay(){
+		yes.setIsPressed(false);
+		no.setIsPressed(false);
 	}
 		
 		

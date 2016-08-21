@@ -28,6 +28,10 @@ public class ReplayButton extends JButton implements MouseListener  {
 			return isPressed;
 		}
 		
+		public void setIsPressed(boolean bool){
+			isPressed = bool;
+		}
+		
 		
 		
 		 // Mouse Listener

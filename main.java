@@ -14,14 +14,12 @@ public class main {
 		char symbol1 = ' ';
 		int isBoxPressed = 0;
 		char symbol2 = ' ';
-		String sPlayAgain;
 		char playAgain;
 		int answer;
 		int answerAtHome = 0;
 		char[] tab = {'1', '2', '3', 'O', '5', '6', '7', '8', '9'};
 		Grid grid = new Grid(tab);
 		Scanner sc = new Scanner(System.in);
-		Scanner sString = new Scanner(System.in);
 		
 		// Page d'accueil
 		
@@ -165,18 +163,26 @@ public class main {
 			}
 			window.setLayoutToReplay();
 			window.setText("Voulez-vous recommencer ?");
-			while(window.isValidatePressed() == false){
+			while(window.getReplay() == ' '){
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
-			playAgain = window.getSaisie().charAt(0);
+			playAgain = window.getReplay();
+			window.resetReplay();
 			
-			}while(playAgain == 'O');	
+			}while(playAgain == 'Y');	
 			
 			window.setText("Au revoir !");
+			try {
+				Thread.sleep(800);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			window.dispose();
 		}	
 		}
 		
