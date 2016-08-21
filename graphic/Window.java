@@ -389,6 +389,30 @@ public class Window extends JFrame {
 
 	}
 	
+	
+	public void resetLayoutReplay(){
+		south.remove(yes);
+		south.remove(no);
+		int x = 110;
+		int y = 610;
+		while(x > 50){
+			this.setSize(new Dimension(500, y));
+			up.setPreferredSize(new Dimension(500, x));
+			up.repaint();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			x = x - 1;
+			y = y - 1;
+			
+		}
+		
+		
+	}
+	
+	
 	public char getReplay(){
 		char choice = ' ';
 		

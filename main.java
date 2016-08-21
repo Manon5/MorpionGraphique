@@ -97,9 +97,9 @@ public class main {
 			try {
 				Thread.sleep(2500);
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
 			Player playerOne = new Player(playerName1, symbol1, 1);
 			Player playerTwo = new Player(playerName2, symbol2, 2);
 			window.setText("Merci, la partie peut commencer.");
@@ -172,6 +172,7 @@ public class main {
 			}
 			playAgain = window.getReplay();
 			window.resetReplay();
+			window.resetLayoutReplay();
 			
 			}while(playAgain == 'Y');	
 			

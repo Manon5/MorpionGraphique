@@ -71,7 +71,6 @@ public class ValidateButton extends JButton implements MouseListener {
 		try {
 			Thread.sleep(20);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		window.clearSaisie();
