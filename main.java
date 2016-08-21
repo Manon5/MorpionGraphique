@@ -69,6 +69,26 @@ public class main {
 			}
 			window.setValidate(false);
 			playerName1 = window.getSaisie();
+			if(playerName1.equals("       ")){
+				while(playerName1.equals("       ")){
+					window.setText("Ce nom n'est pas valide. Joueur 1, quel est votre nom ?");
+					while(window.isValidatePressed() == false){
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					window.setValidate(false);
+					playerName1 = window.getSaisie();
+				}
+			}
+			
+			
+			playerName1.replaceAll(" ", "");
+			
+			
+			
 			window.setValidate(false);
 			window.changeLayoutToChooseSymbol();
 			window.setText("<html> Bienvenue, " + playerName1 + " ! Avec quel symbole <br>  souhaitez-vous jouer ? </html>");
@@ -91,6 +111,21 @@ public class main {
 			}
 			window.setValidate(false);
 			playerName2 = window.getSaisie();
+			if(playerName2.equals("       ")){
+				while(playerName2.equals("       ")){
+					window.setText("Ce nom n'est pas valide. Joueur 2, quel est votre nom ?");
+					while(window.isValidatePressed() == false){
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					window.setValidate(false);
+					playerName2 = window.getSaisie();
+				}
+			}	
+			playerName2.replaceAll(" ", "");
 			if (symbol1 == 'X'){
 				symbol2 = 'O';
 			}else {
@@ -103,8 +138,8 @@ public class main {
 				e1.printStackTrace();
 			}
 
-			playerName1.replaceAll(" ", "");
-			playerName2.replaceAll(" ", "");
+			
+			
 			Player playerOne = new Player(playerName1, symbol1, 1);
 			Player playerTwo = new Player(playerName2, symbol2, 2);
 			window.setText("Merci, la partie peut commencer.");
