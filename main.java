@@ -43,7 +43,6 @@ public class main {
 			homeWindow.dispose();
 		}else if(answerAtHome == 3){
 			// Si "Crédits" est pressé
-			CreditsWindow credits = new CreditsWindow();
 			homeWindow.dispose();
 		}else{
 			// Commencement du jeu
@@ -71,7 +70,7 @@ public class main {
 			playerName1 = window.getSaisie();
 			window.setValidate(false);
 			window.changeLayoutToChooseSymbol();
-			window.setText("Bienvenue, " + playerName1 + " ! Avec quel symbole souhaitez-vous jouer ?");
+			window.setText("<html> Bienvenue, " + playerName1 + " ! Avec quel symbole <br>  souhaitez-vous jouer ? </html>");
 			while(window.getSymbol() == ' '){
 				try {
 					Thread.sleep(10);
@@ -96,7 +95,7 @@ public class main {
 			}else {
 				symbol2 = 'X';
 			}
-			window.setText("Bienvenue, " + playerName2 + " ! Vous jouerez avec le  symbole " + symbol2);
+			window.setText("<html>Bienvenue, " + playerName2 + " ! Vous jouerez avec <br>le  symbole " + symbol2 + "</html>");
 			try {
 				Thread.sleep(2500);
 			} catch (InterruptedException e1) {
@@ -164,6 +163,7 @@ public class main {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			window.setLayoutToReplay();
 			window.setText("Voulez-vous recommencer ?");
 			while(window.isValidatePressed() == false){
 				try {

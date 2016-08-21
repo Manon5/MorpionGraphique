@@ -40,6 +40,11 @@ public class Window extends JFrame {
 	
 	private JPanel south = new JPanel();
 	private BorderLayout layout = new BorderLayout(4, 4);
+	private JPanel up = new JPanel();
+	private BorderLayout upLayout = new BorderLayout();
+	
+	private ReplayButton yes = new ReplayButton(true, "Yes", 250, 50);
+	private ReplayButton no = new ReplayButton(false, "No", 250, 50);
 	
 	
 	// ----------- Methodes --------- //
@@ -55,6 +60,7 @@ public class Window extends JFrame {
 		try {
 			MaskFormatter formatter = new MaskFormatter("???????");
 			JFormattedTextField pSaisie = new JFormattedTextField(formatter);
+			
 			saisie = pSaisie;
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -62,9 +68,8 @@ public class Window extends JFrame {
 		saisie.requestFocus(true);
 		
 		// Parametres partie sup
-		JPanel up = new JPanel();
 		up.setPreferredSize(new Dimension(500, 200));
-		BorderLayout upLayout = new BorderLayout();
+		
 		up.setLayout(upLayout);
 			// Ajout du JLabel
 			JPanel messageP = new JPanel();
@@ -341,9 +346,43 @@ public class Window extends JFrame {
 	}
 	
 	public void setLayoutForGame(){
-		saisie.enable(false);
-		button.enable(false);
-		this.setPreferredSize(new Dimension(100, 200));
+		south.remove(saisie);
+		south.remove(button);
+		int y = 700;
+		int x = 200;
+		while(x > 50){
+			this.setSize(new Dimension(500, y));
+			up.setPreferredSize(new Dimension(500, x));
+			up.repaint();
+			try {
+				Thread.sleep(8);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			y = y - 1;
+			x = x - 1;
+		}
+
+	}
+	
+	
+	
+	public void setLayoutToReplay(){
+		int x = 50;
+		int y = 550;
+		while(x < 100){
+			this.setSize(new Dimension(500, y));
+			up.setPreferredSize(new Dimension(500, x));
+			up.repaint();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			x = x + 1;
+			y = y + 1;
+		}
+
 	}
 		
 		
